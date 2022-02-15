@@ -14,6 +14,9 @@ namespace LinqPractice.Tests
         [TestInitialize]
         public void Setup()
         {
+            // Don't change any of the code inside the Setup method.
+            // It's just giving us a consistent set of data for each test.
+
             _courses = new List<Course>
             {
                 new Course {Id = 1, Name = "Calculus", Credits = 3 },
@@ -74,7 +77,7 @@ namespace LinqPractice.Tests
         public void GetNames()
         {
             //1.Use LINQ to get just the names of all the students. Iterate over the result to print the names.
-            IEnumerable<string> names = _students.Select(s => s.Name);
+            IEnumerable<string> names = _students./*Answer here*/;
 
             // Within this test, don't change any code below this line.
             foreach (string name in names)
@@ -95,7 +98,7 @@ namespace LinqPractice.Tests
             //           LINQ query is just an execution plan.
 
             // 2A. Use the SAME exact solution here that you used in GetNames()
-            IEnumerable<string> names = _students.Select(s => s.Name);
+            IEnumerable<string> names = _students./*Answer here*/;
 
             // Don't change any code below here, but DO look at the code to understand what it's doing)
 
@@ -125,7 +128,7 @@ namespace LinqPractice.Tests
             //           that value is no longer connected to the underlying collection.
 
             // 2A. Use the SAME exact solution here that you used in GetNames()
-            IEnumerable<string> names = _students.Select(s => s.Name);
+            IEnumerable<string> names = _students./*Answer here*/;
 
             // Don't change any code below here, but DO look at the code to understand what it's doing)
 
@@ -150,10 +153,10 @@ namespace LinqPractice.Tests
         {
             //4.Use LINQ to get all the students enrolled in Course ID 3.
             //(In other words, all the students where the EnrolledCourseId == 3)Print the count of the result(Count()).
-            IEnumerable<Student> course3Students = _students.Where(s => s.EnrolledCourseId == 3);
+            IEnumerable<Student> course3Students = _students./*Answer here*/;
 
             //4B. Now find how many students are in Course ID 3.
-            int course3Count = course3Students.Count();
+            int course3Count = course3Students./*Answer here*/;
 
             Assert.AreEqual(2, course3Count);
 
@@ -161,14 +164,14 @@ namespace LinqPractice.Tests
             //4C. Do the same aa above, but using method chaining to combine the two steps
             //    into a single statement.
             //    Example: int count2 = _students.Method(params).OtherMethod(params)
-            int count2 = _students.Where(s => s.EnrolledCourseId == 3).Count();
+            int count2 = _students./*Answer here*/;
 
             Assert.AreEqual(2, count2);
 
             //4D. Do the same above, but pass a predicate into the Count() method, so
             //    you only need one method call.
             //    Example: int count3 = _students.Count(s => s.SomeProperty == SomeValue)
-            int count3 = _students.Count(s => s.EnrolledCourseId == 3);
+            int count3 = _students./*Answer here*/;
 
             Assert.AreEqual(2, count3);
         }
@@ -178,10 +181,10 @@ namespace LinqPractice.Tests
         public void OldStudents()
         {
             //5A. Use LINQ to get all the students who are at least 21 years old.
-            IEnumerable<Student> oldStudents = _students.Where(s => s.Age >= 21);
+            IEnumerable<Student> oldStudents = _students./*Answer here*/;
 
             //5B. Now get just the NAMES of those students.
-            IEnumerable<string> oldNames = oldStudents.Select(s => s.Name);
+            IEnumerable<string> oldNames = oldStudents./*Answer here*/;
 
             Console.WriteLine("oldNames:");
             foreach(string name in oldNames)
@@ -192,7 +195,7 @@ namespace LinqPractice.Tests
             Assert.IsTrue(oldNames.SequenceEqual(new[] {"Bob", "Elliot" }));
 
             //5C. Do the same as above, but use method chaining to do it in one statement.
-            IEnumerable<string> oldNames2 = _students.Where(s => s.Age >= 21).Select(s => s.Name);
+            IEnumerable<string> oldNames2 = _students./*Answer here*/;
 
             Console.WriteLine("oldNames2:");
             foreach (string name in oldNames2)
@@ -206,8 +209,9 @@ namespace LinqPractice.Tests
         [TestMethod]
         public void CoursesWithAtLeast2Credits()
         {
-            //6. Use LINQ to get JUST the NAMES of all the courses worth at least 2 credits.
-            IEnumerable<string> goodCourseNames = _courses.Where(c => c.Credits >= 2).Select(c => c.Name);
+            //6. Use LINQ and method chaining to get JUST the NAMES
+            //   of all the courses worth at least 2 credits.
+            IEnumerable<string> goodCourseNames = _courses./*Answer here*/;
 
             foreach(var courseName in goodCourseNames)
             {
@@ -222,18 +226,18 @@ namespace LinqPractice.Tests
         {
             //7. Use LINQ to find the average age of the students (don't worry about casting to
             //float/double, just use the integer ages as they are).
-            double averageAge = _students.Average(s => s.Age);
+            double averageAge = _students./*Answer here*/;
 
             Assert.AreEqual(20.166666666, averageAge, 0.000000001);
 
             //8. Use LINQ and method chaining to find the average age of the students
             //   enrolled in Course ID 1.
-            double course1AverageAge = _students.Where(s => s.EnrolledCourseId == 1).Average(s => s.Age);
+            double course1AverageAge = _students./*Answer here*/;
 
             Assert.AreEqual(22.0, course1AverageAge, 0.000000001);
 
             //9. Find the highest age from all the students
-            int highestAge = _students.Max(s => s.Age);
+            int highestAge = _students./*Answer here*/;
 
             Assert.AreEqual(23, highestAge);
 
@@ -243,7 +247,7 @@ namespace LinqPractice.Tests
         public void Ordering()
         {
             //10. Use LINQ to order the students by age, youngest first.
-            IEnumerable<Student> orderedStudents = _students.OrderBy(s => s.Age);
+            IEnumerable<Student> orderedStudents = _students./*Answer here*/;
 
             foreach(Student student in orderedStudents)
             {
@@ -254,7 +258,7 @@ namespace LinqPractice.Tests
             Assert.AreEqual(23, orderedStudents.Last().Age);
 
             //11. Use LINQ to order the students by age, oldest first.
-            IEnumerable<Student> reversedStudents = _students.OrderByDescending(s => s.Age);
+            IEnumerable<Student> reversedStudents = _students./*Answer here*/;
 
             foreach (Student student in reversedStudents)
             {
@@ -267,7 +271,7 @@ namespace LinqPractice.Tests
 
             //12. Use LINQ and method chaining to find the oldest student (not the oldest student's
             //    age, but the actual Student).
-            Student oldest = _students.OrderByDescending(s => s.Age).First();
+            Student oldest = _students./*Answer here*/;
 
             Console.WriteLine("Oldest: " + oldest.Name);
 
@@ -277,7 +281,7 @@ namespace LinqPractice.Tests
             //13. Use LINQ and method chaining to find the NAMES of the TWO oldest students, with
             //    the oldest listed first.
             //    You will need to chain several methods together to do this.
-            IEnumerable<string> twoOldest = _students.OrderByDescending(s => s.Age).Take(2).Select(s => s.Name);
+            IEnumerable<string> twoOldest = _students./*Answer here*/;
 
             foreach (string name in twoOldest)
             {
@@ -287,9 +291,5 @@ namespace LinqPractice.Tests
             Assert.IsTrue(twoOldest.SequenceEqual(new[] { "Bob", "Elliot" }));
 
         }
-
-
-
-
     }
 }
